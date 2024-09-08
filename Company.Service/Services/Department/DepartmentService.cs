@@ -1,51 +1,56 @@
-﻿using Company.Data.Models;
+﻿using AutoMapper;
+using Company.Data.Models;
 using Company.Repository.Interfaces;
+using Company.Service.Services.Department.Dto;
 
-namespace Company.Service.Services
+namespace Company.Service
 {
     public class DepartmentService : IDepartmentService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public DepartmentService(IUnitOfWork unitOfWork)
+        public DepartmentService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
-        public void Add(Department department)
+        public void Add(DepartmentDto departmentDto)
         {
-            var mappedDepartment = new Department
-            {
-                Code = department.Code,
-                Name = department.Name
-            };
+            var mappedDepartment = _mapper.Map<Department>(departmentDto); 
             _unitOfWork.DepartmentRepository.Add(mappedDepartment);
             _unitOfWork.Complete();
         }
 
-        public void Delete(Department department)
+        public void Delete(DepartmentDto departmentDto)
         {
-            _unitOfWork.DepartmentRepository.Delete(department);
+            var mappedDepartment = _mapper.Map<Department>(departmentDto);
+            _unitOfWork.DepartmentRepository.Delete(mappedDepartment);
             _unitOfWork.Complete();
         }
 
-        public IEnumerable<Department> GetAll()
+        public IEnumerable<DepartmentDto> GetAll()
         {
             var departments = _unitOfWork.DepartmentRepository.GetAll();
-            return departments;
+            var mappedDepartments = _mapper.Map<IEnumerable<DepartmentDto>>(departments);
+
+            return mappedDepartments;
         }
 
-        public Department GetById(int? id)
+        public DepartmentDto GetById(int? id)
         {
             if (id is null)
                 return null;
             var department = _unitOfWork.DepartmentRepository.GetById(id.Value);
             if (department is null)
                 return null;
-            return department;
+            var mappedDepartment = _mapper.Map<DepartmentDto>(department);
+
+            return mappedDepartment;
         }
 
-        public void Update(Department department)
+        public void Update(DepartmentDto department)
         {
             var updatedDepartment = GetById(department.Id);
             if (updatedDepartment.Name != department.Name)
@@ -55,7 +60,9 @@ namespace Company.Service.Services
             }
             updatedDepartment.Code = department.Code;
             updatedDepartment.Name = department.Name;
-            _unitOfWork.DepartmentRepository.Update(updatedDepartment);
+            Department employee = _mapper.Map<Department>(updatedDepartment);
+
+            _unitOfWork.DepartmentRepository.Update(employee);
             _unitOfWork.Complete();
         }
     }

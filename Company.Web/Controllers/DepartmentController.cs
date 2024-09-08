@@ -1,6 +1,7 @@
 ﻿using Company.Data.Models;
 using Company.Repository.Interfaces;
 using Company.Service;
+using Company.Service.Services.Department.Dto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Company.Web.Controllers
@@ -25,23 +26,23 @@ namespace Company.Web.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Department department)
+        public IActionResult Create(DepartmentDto departmentDto)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _departmentService.Add(department);
+                    _departmentService.Add(departmentDto);
                     return RedirectToAction("Index");
                 }
                 ModelState.AddModelError("DepartmentError", "ValidationErrors");
-                return View(department);
+                return View(departmentDto);
             }
             catch (Exception ex)
             {
 
                 ModelState.AddModelError("DepartmentError",ex.Message);
-                return View(department); 
+                return View(departmentDto); 
             }
             
         }
@@ -60,11 +61,11 @@ namespace Company.Web.Controllers
             return Details(id,"Update");
         }
         [HttpPost]
-        public IActionResult Update(int id,Department department) 
+        public IActionResult Update(int id,DepartmentDto departmentDto) 
         {
-            if(department.Id != id)
+            if(departmentDto.Id != id)
                 return RedirectToAction("NotFoundPage", null, "Home");
-            _departmentService.Update(department);
+            _departmentService.Update(departmentDto);
             return RedirectToAction("Index");
         }
         public IActionResult Delete(int? id)
