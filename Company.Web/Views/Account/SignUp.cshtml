@@ -1,30 +1,53 @@
-﻿
+﻿@model SignUpViewModel
 @{
     ViewData["Title"] = "SignUp";
     Layout = "~/Views/Shared/_AuthLayout.cshtml";
 }
 
-<div class="signup-form">
-    <div class="title">Signup</div>
-    <form action="#">
-        <div class="input-boxes">
-            <div class="input-box">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" required>
-            </div>
-            <div class="input-box">
-                <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
-            </div>
-            <div class="input-box">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
-            </div>
-            <div class="button input-box">
-                <input type="submit" value="Sumbit">
-            </div>
-            <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
-        </div>
-    </form>
+<div class="col-lg-6 col-md-6 infinity-form-container">
+	<div class="col-lg-9 col-md-12 col-sm-8 col-xs-12 infinity-form">
+		<div class="text-center mb-4">
+			<h4>Sign Up</h4>
+		</div>
+		<!-- Form -->
+		<form class="px-3" asp-action="SignUp" method="post">
+			<!-- Input Box -->
+			<div class="form-input">
+				<span><i class="fa fa-user-o"></i></span>
+				<input type="text" asp-for="FirstName" placeholder="First Name" tabindex="10" required>
+			</div>
+			<div class="form-input">
+				<span><i class="fa fa-user-o"></i></span>
+				<input type="text" asp-for="LastName" placeholder="Last Name" tabindex="10" required>
+			</div>
+			<div class="form-input">
+				<span><i class="fa fa-envelope-o"></i></span>
+				<input type="email" asp-for="Email" placeholder="Email Address" tabindex="10" required>
+			</div>
+			<div class="form-input">
+				<span><i class="fa fa-lock"></i></span>
+				<input type="password" asp-for="Password" placeholder="Password" required>
+			</div>
+			<div class="form-input">
+				<span><i class="fa fa-lock"></i></span>
+				<input type="password" asp-for="ConfirmPassword" placeholder="ConfirmePassword" required>
+			</div>
+			<div class="col-auto d-flex align-items-center">
+				<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" id="cb1">
+					<label class="custom-control-label text-white" for="cb1">I Agree To The Terms and Conditions</label>
+				</div>
+			</div>
+			<!-- Register Button -->
+			<div class="mb-3">
+				<button type="submit" class="btn btn-block">Register</button>
+			</div>
+			<div class="text-center mb-2">
+			</div>
+			<div class="text-center mb-5 text-white">
+				Already have an account?
+				<a class="login-link" asp-action="Login">Login Now!</a>
+			</div>
+		</form>
+	</div>
 </div>
-

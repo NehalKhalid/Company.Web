@@ -1,252 +1,121 @@
-/* Google Font Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+.container-fluid{
+    background-color: black;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #7d2ae8;
-  padding: 30px;
+.infinity-image-container{
+    background: url('../Files/Images/bg.jpg') center no-repeat;
+    background-size: cover;
+    opacity: 0.6;
+    height: 100vh;
 }
 
-.container {
-  position: relative;
-  max-width: 850px;
-  width: 100%;
-  background: #fff;
-  padding: 40px 30px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  perspective: 2700px;
+.infinity-form-container{
+    background: #31335d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.container .cover {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 100%;
-  width: 50%;
-  z-index: 98;
-  transition: all 1s ease;
-  transform-origin: left;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+.infinity-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.container #flip:checked ~ .cover {
-  transform: rotateY(-180deg);
+.infinity-form h4 {
+    font-weight: bold;
+    color: white;
 }
 
-.container #flip:checked ~ .forms .login-form {
-  pointer-events: none;
+.infinity-form .form-input {
+    position: relative;
 }
 
-.container .cover .front,
-.container .cover .back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-}
-
-.cover .back {
-  transform: rotateY(180deg);
-}
-
-.container .cover img {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  z-index: 10;
-}
-
-.container .cover .text {
-  position: absolute;
-  z-index: 10;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.container .cover .text::before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  opacity: 0.5;
-  background: #7d2ae8;
-}
-
-.cover .text .text-1,
-.cover .text .text-2 {
-  z-index: 20;
-  font-size: 26px;
-  font-weight: 600;
-  color: #fff;
-  text-align: center;
-}
-
-.cover .text .text-2 {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.container .forms {
-  height: 100%;
-  width: 100%;
-  background: #fff;
-}
-
-.container .form-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.form-content .login-form,
-.form-content .signup-form {
-  width: calc(100% / 2 - 25px);
-}
-
-.forms .form-content .title {
-  position: relative;
-  font-size: 24px;
-  font-weight: 500;
-  color: #333;
-}
-
-.forms .form-content .title:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 3px;
-  width: 25px;
-  background: #7d2ae8;
-}
-
-.forms .signup-form .title:before {
-  width: 20px;
-}
-
-.forms .form-content .input-boxes {
-  margin-top: 30px;
-}
-
-.forms .form-content .input-box {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-  margin: 10px 0;
-  position: relative;
-}
-
-.form-content .input-box input {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  border: none;
-  padding: 0 30px;
-  font-size: 16px;
-  font-weight: 500;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.form-content .input-box input:focus,
-.form-content .input-box input:valid {
-  border-color: #7d2ae8;
-}
-
-.form-content .input-box i {
-  position: absolute;
-  color: #7d2ae8;
-  font-size: 17px;
-}
-
-.forms .form-content .text {
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-}
-
-.forms .form-content .text a {
-  text-decoration: none;
-}
-
-.forms .form-content .text a:hover {
-  text-decoration: underline;
-}
-
-.forms .form-content .button {
-  color: #fff;
-  margin-top: 40px;
-}
-
-.forms .form-content .button input {
-  color: #fff;
-  background: #7d2ae8;
-  border-radius: 6px;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-.forms .form-content .button input:hover {
-  background: #5b13b9;
-}
-
-.forms .form-content label {
-  color: #5b13b9;
-  cursor: pointer;
-}
-
-.forms .form-content label:hover {
-  text-decoration: underline;
-}
-
-.forms .form-content .login-text,
-.forms .form-content .sign-up-text {
-  text-align: center;
-  margin-top: 25px;
-}
-
-.container #flip {
-  display: none;
-}
-
-@media (max-width: 730px) {
-  .container .cover {
-    display: none;
-  }
-
-  .form-content .login-form,
-  .form-content .signup-form {
+.infinity-form .form-input input {
     width: 100%;
-  }
+    margin-bottom: 20px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background: white;
+    padding-left: 45px;
+}
 
-  .form-content .signup-form {
-    display: none;
-  }
+.infinity-form .form-input span {
+    position: absolute;
+    top: 8px;
+    padding-left: 20px;
+    color: #777;
+}
 
-  .container #flip:checked ~ .forms .signup-form {
-    display: block;
-  }
+.infinity-form .form-input input:focus,
+.infinity-form .form-input input:valid {
+    border: 2px solid #4285f4;   
+}
 
-  .container #flip:checked ~ .forms .login-form {
-    display: none;
-  }
+.infinity-form input[type="checkbox"]:not(:checked) + label:before{
+    background: transparent;
+    border:2px solid white;
+    width: 15px;
+    height: 15px;
+}
+
+.infinity-form .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #4285f4 !important;
+  border:0px;
+}
+
+.infinity-form button[type="submit"] {
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #4285f4, #709de8);   /*Button Color*/
+    color: #fff;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.infinity-form button[type="submit"]:hover {
+    background: linear-gradient(45deg, #709de8, #4285f4);   /*Button color when hover*/
+}
+
+.forget-link , .login-link , .register-link {
+    color: #fff;
+    font-weight: bold;
+}
+
+.forget-link:hover , .login-link:hover , .register-link:hover {
+    color: #4285f4;
+    text-decoration: none;
+}
+
+.infinity-form .btn-social {
+    color: white;
+    border: 0;
+    display: inline-block;
+    margin: 0px;
+    margin-right: 10px;
+    font-weight: bold;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+.infinity-form .btn-social:hover {
+    text-decoration: underline;
+}
+
+.infinity-form .btn-facebook:hover {
+    color: hsla(221, 40%, 40%, 1);
+}
+
+.infinity-form .btn-google:hover {
+    color: hsla(4, 59%, 47%, 1);
+}
+
+.infinity-form .btn-twitter:hover {
+    color: hsla(195, 78%, 54%, 1);
 }

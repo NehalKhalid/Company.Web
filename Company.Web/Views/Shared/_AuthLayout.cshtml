@@ -1,82 +1,54 @@
 ﻿<!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
-<html lang="en" dir="ltr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
-    <link rel="stylesheet" href="~/css/style.css">
-    <!-- Fontawesome CDN Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="~/css/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <input type="checkbox" id="flip">
-        <div class="cover">
-            <div class="front">
-                <img src="~/Files/Images/frontImg.jpg" alt="">
-                <div class="text">
-                    <span class="text-1">Every new friend is a <br> new adventure</span>
-                    <span class="text-2">Let's get connected</span>
-                </div>
-            </div>
-            <div class="back">
-                <img class="backImg" src="~/Files/Images/backImg.jpg" alt="">
-                <div class="text">
-                    <span class="text-1">Complete miles of journey <br> with one step</span>
-                    <span class="text-2">Let's get started</span>
-                </div>
-            </div>
-        </div>
-        <div class="forms">
-            <div class="form-content">
-                @RenderBody()
-                <div class="login-form">
-                    <div class="title">Login</div>
-                    <form action="#">
-                        <div class="input-boxes">
-                            <div class="input-box">
-                                <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Enter your email" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Enter your password" required>
-                            </div>
-                            <div class="text"><a href="#">Forgot password?</a></div>
-                            <div class="button input-box">
-                                <input type="submit" value="Sumbit">
-                            </div>
-                            <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
-                        </div>
-                    </form>
-                </div>
-                @* <div class="signup-form">
-                    <div class="title">Signup</div>
-                    <form action="#">
-                        <div class="input-boxes">
-                            <div class="input-box">
-                                <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Enter your name" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Enter your email" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Enter your password" required>
-                            </div>
-                            <div class="button input-box">
-                                <input type="submit" value="Sumbit">
-                            </div>
-                            <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
-                        </div>
-                    </form>
-                </div> *@
-            </div>
-        </div>
-    </div>
+	<div class="container-fluid">
+		<div class="row ">
+			<!-- IMAGE CONTAINER BEGIN -->
+			<div class="col-lg-6 col-md-6 d-none d-md-block infinity-image-container"></div>
+			<!-- IMAGE CONTAINER END -->
+			<!-- FORM CONTAINER BEGIN -->
+			@RenderBody()			
+		</div>
+	</div>
 </body>
 </html>
+@* resetpassword
+ *@@* <div class="col-lg-6 col-md-6 infinity-form-container">
+	<div class="col-lg-8 col-md-12 col-sm-8 col-xs-12 infinity-form">
+		<div class="reset-form d-block">
+			<form class="reset-password-form px-3">
+				<h4 class="mb-3">Reset Your password</h4>
+				<p class="mb-3 text-white">
+					Please enter your email address and we will send you a password reset link.
+				</p>
 
+				<div class="form-input">
+					<span><i class="fa fa-envelope"></i></span>
+					<input type="email" name="" placeholder="Email Address" tabindex="10" required>
+				</div>
+				<div class="mb-3">
+					<button type="submit" class="btn">Send Reset Link</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="reset-confirmation d-none px-3">
+			<div class="mb-4">
+				<h4 class="mb-3">Link was sent</h4>
+				<h6 class="text-white">Please, check your inbox for a password reset link.</h6>
+			</div>
+
+			<a href="login.html">
+				<button type="submit" class="btn">Login Now</button>
+			</a>
+			<div>
+			</div>
+		</div> *@
