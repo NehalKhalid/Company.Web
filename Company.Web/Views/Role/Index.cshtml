@@ -1,0 +1,45 @@
+﻿@model IEnumerable<IdentityRole>
+
+
+<h1>All Roles</h1>
+<br />
+<div class="my-1">
+    <a class="btn btn-primary" asp-controller="Role" asp-action="Create">Create New Role</a>
+</div>
+<br />
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(R => R.Id)</th>
+                <th>@Html.DisplayNameFor(R => R.Name)</th>
+                <th>Details</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td>
+                        @role.Id
+                    </td>
+                    <td>
+                        @role.Name
+                    </td>
+                    <partial name="_ActionButtonsPartialView" model="@role.Id.ToString()" />
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        There Are No Roles !!!!
+    </div>
+}
+
